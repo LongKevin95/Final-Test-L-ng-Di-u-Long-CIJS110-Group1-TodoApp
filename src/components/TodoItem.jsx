@@ -1,3 +1,5 @@
+import trashCanIcon from "../assets/trash-can.svg";
+
 function TodoItem({ todo, onToggle, onDelete, showDelete }) {
   return (
     <li className="todo-item">
@@ -13,7 +15,7 @@ function TodoItem({ todo, onToggle, onDelete, showDelete }) {
 
       {showDelete && (
         <button className="todo-delete" onClick={() => onDelete(todo.id)}>
-          <img src="../../src/assets/trash-can.svg" alt="-icon" />
+          <img src={trashCanIcon} alt="-icon" />
         </button>
       )}
     </li>

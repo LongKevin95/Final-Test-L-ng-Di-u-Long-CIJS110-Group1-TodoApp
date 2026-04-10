@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Tabs from "./components/Todo/Tabs";
-import TodoInput from "./components/Todo/TodoInput";
-import TodoList from "./components/Todo/TodoList";
+import trashCanWhiteIcon from "./assets/trash-can-white.svg";
+import Tabs from "./components/Tabs";
+import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>#todo</h1>
+      <h1>Todo List</h1>
 
       <Tabs tab={currentTab} setTab={setCurrentTab} />
 
@@ -63,11 +64,7 @@ function App() {
 
       {currentTab === "completed" && (
         <button className="delete-all" onClick={deleteAllCompleted}>
-          <img
-            className="todo-delete"
-            src="../../src/assets/trash-can-white.svg"
-            alt=""
-          />
+          <img className="todo-delete" src={trashCanWhiteIcon} alt="" />
           delete all
         </button>
       )}
