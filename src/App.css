@@ -1,0 +1,165 @@
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #252525;
+  background: #ffffff;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.container {
+  width: min(100%, 610px);
+}
+
+.container h1 {
+  margin-bottom: 42px;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 18px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.tabs button {
+  position: relative;
+  padding: 0 12px 14px;
+  border: 0;
+  background: transparent;
+  color: #555555;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  color: #111111;
+}
+
+.tabs button.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background: #2f80ed;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.input-group {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.input-group input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #2f80ed;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.14);
+}
+
+.input-group button,
+.delete-all {
+  border: 0;
+  border-radius: 4px;
+  background: #2f80ed;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.input-group button {
+  min-width: 110px;
+  padding: 14px 22px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.todo-item + .todo-item {
+  margin-top: 8px;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #2f80ed;
+  cursor: pointer;
+}
+
+.todo-text {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.todo-text.done {
+  color: #8a8a8a;
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.delete-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 0 0 auto;
+  padding: 12px 18px;
+  background: #eb5757;
+}
+
+@media (max-width: 640px) {
+  #root {
+    padding: 24px 16px;
+  }
+
+  .container h1 {
+    margin-bottom: 28px;
+    font-size: 2rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group button {
+    width: 100%;
+  }
+}
