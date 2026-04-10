@@ -93,9 +93,62 @@ body {
   padding: 14px 22px;
 }
 
+.input-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-group button.is-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-all:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-all.is-loading {
+  gap: 10px;
+}
+
+.button-spinner,
+.checkbox-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(47, 128, 237, 0.18);
+  border-top-color: #2f80ed;
+  border-radius: 999px;
+  animation: spin 0.7s linear infinite;
+}
+
+.button-spinner {
+  border-color: rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+}
+
+.delete-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(235, 87, 87, 0.18);
+  border-top-color: #eb5757;
+  border-radius: 999px;
+  animation: spin 0.7s linear infinite;
+}
+
 .todo-list {
   list-style: none;
   padding: 0;
+}
+
+.loading-todos {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  font-size: 20px;
 }
 
 .todo-item {
@@ -109,11 +162,33 @@ body {
   margin-top: 8px;
 }
 
+.todo-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.todo-toggle:disabled {
+  cursor: not-allowed;
+}
+
 .todo-item input[type="checkbox"] {
   width: 20px;
   height: 20px;
   accent-color: #2f80ed;
   cursor: pointer;
+}
+
+.checkbox-spinner {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .todo-text {
@@ -131,9 +206,21 @@ body {
   margin-right: 10px;
   width: 20px;
   height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.todo-delete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.todo-delete.is-loading {
+  pointer-events: none;
 }
 
 .delete-all {
@@ -143,6 +230,12 @@ body {
   margin: 28px 0 0 auto;
   padding: 12px 18px;
   background: #eb5757;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 640px) {
